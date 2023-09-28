@@ -1,4 +1,8 @@
 from django.http import HttpResponse
+from .models import BoardMessage
 
 def index(request):
-   return HttpResponse("List of announcements")
+   content = 'List of announcements\n\n'
+   for post in BoardMessage.objects.order_by('-published'):
+      content += post.title + '\n' + post.content + '\n\n'
+   return HttpResponse(content, content_type='text/plain; charset=utf-8')
