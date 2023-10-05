@@ -17,5 +17,8 @@ class BoardMessage(models.Model):
 class Rubric(models.Model):
    name = models.CharField(max_length=30, db_index=True)
 
+   def __str__(self):
+      return self.name
+
    class Meta:
       ordering = ['name']
