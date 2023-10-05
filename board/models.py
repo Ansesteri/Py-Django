@@ -6,8 +6,16 @@ class BoardMessage(models.Model):
    content = models.TextField(null=True, blank=True, verbose_name="Description")
    price = models.FloatField(null=True, blank=True)
    published = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name="Date")
+   rubric = models.ForeignKey('Rubric', null=True, on_delete=models.PROTECT, verbose_name="Rubric")
 
    class Meta:
       verbose_name="Board of announcements"
       verbose_name_plural="Board of announcements"
       ordering = ['-published']
+
+
+class Rubric(models.Model):
+   name = models.CharField(max_length=30, db_index=True)
+
+   class Meta:
+      ordering = ['name']
