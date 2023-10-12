@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Adding Announcement :: Board of Announcements</title>
-</head>
-<body>
-   <h1>Adding Announcement</h1>
-   <div>
-      <a href="{% url 'index' %}">Main page</a>
-      {% for rubric in rubrics %}
-      <a href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
-      {% endfor %}
-   </div>
-   <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="submit" value="Add">
-   </form>
-</body>
-</html>
+{% extends "layout/base.html" %}
+{% block title %}Add Announcement{% endblock title %}
+
+{% block content %}
+<h2>Adding Announcement</h2>
+<form method="post">
+   {% csrf_token %}
+   {{ form.as_p }}
+   <input type="submit" value="Add">
+</form>
+{% endblock content %}
