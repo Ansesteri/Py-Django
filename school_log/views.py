@@ -5,7 +5,7 @@ from .forms import SchoolMessageForm
 from .models import SchoolMessage, Subject
 
 class SchoolMessageCreateView(CreateView):
-   template_name = 'school_log/create.html'
+   template_name = 'school_log/create1.html'
    form_class = SchoolMessageForm
    success_url = reverse_lazy('index')
 
@@ -22,7 +22,7 @@ def index(request):
       'posts': posts,
       'subjects': subjects
    }
-   return render(request, 'school_log/index.html', context)
+   return render(request, 'school_log/index1.html', context)
 
 
 def subject(request, subject_id):

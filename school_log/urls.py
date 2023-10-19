@@ -5,5 +5,5 @@ from .views import index, subject, SchoolMessageCreateView
 urlpatterns = [
    path('add/', SchoolMessageCreateView.as_view(), name = 'add'),
    path('<int:subject_id>/', subject, name="subject"),
-   path('', index, name="index"),
+   path('', index, name="index_school"),
 ]
