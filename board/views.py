@@ -29,10 +29,4 @@ def by_rubric(request, rubric_id):
    posts = BoardMessage.objects.filter(rubric = rubric_id)
    rubrics = Rubric.objects.all()
    current_rubric = Rubric.objects.get(pk=rubric_id)
-   #context = {
-   #   'post': posts,
-   #   'rubrics': rubrics,
-   #   'current_rubric': current_rubric,
-   #}
-   #return render(request, 'board/by_rubric.html', context)
    return render(request, 'board/by_rubric.html', locals())

@@ -1,0 +1,12 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+{% for post in posts %}
+<div>
+   <h2>{{ post.title }}</h2>
+   <p>{{ post.content }}</p>
+   <p><a href="{% url 'subject' post.subject.pk %}">{{ post.subject.name }}</a></p>
+   <p>{{ post.published|date:"d.m.Y H:i:s" }}</p>
+</div>
+{% endfor %}
+{% endblock content %}
